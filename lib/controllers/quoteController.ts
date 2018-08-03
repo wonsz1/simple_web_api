@@ -34,4 +34,27 @@ export class QuoteController {
             res.json(quote);
         });
     }
+
+    public updateQuote(req: Request, res: Response) {
+        Quote.findOneAndUpdate(
+            { _id: req.params.quoteId }, 
+            req.body, 
+            { new: true },
+            (err, quote) => {
+                if(err) {
+                    res.send(err);
+                }
+                res.json(quote);
+            }
+        );
+    }
+
+    public deleteQuote(req: Request, res: Response) {
+        Quote.remove({ _id: req.params.quoteId }, (err, quote) => {
+            if(err) {
+                res.send(err);
+            }
+            res.json({ message: "Quote deleted!" });
+        });
+    }
 }
