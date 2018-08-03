@@ -1,10 +1,14 @@
 {
   "name": "simple_web_api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "based on https://github.com/dalenguyen/rest-api-node-typescript",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "dev": "ts-node ./lib/server.ts",
+    "start": "nodemon ./dist/server.js",
+    "prod": "npm run build && npm run start"
   },
   "repository": {
     "type": "git",
