@@ -22,7 +22,9 @@ export class QuoteController {
             if(err) {
                 res.send(err);
             }
-            res.json(quote);
+            res.status(200).send({
+                message: "Quote saved!"
+            });
         });
     }
 

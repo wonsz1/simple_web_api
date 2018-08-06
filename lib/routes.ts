@@ -5,9 +5,7 @@ export class Routes {
     public quoteController: QuoteController = new QuoteController();
     public routes(app): void {
         app.route('/').get((req: Request, res: Response) => {
-            res.status(200).send({
-                message: "get request confirmed"
-            });
+            res.sendFile(__dirname + '/index.html');
         });
 
         app.route('/quotes').get(this.quoteController.getQuotes);
